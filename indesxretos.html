@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RETO REACT ESTADO</title>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <!-- ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+
+<body>
+
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+
+        function Titulo() {
+
+            return (
+                <div>
+
+                    <h1>Reto Estado</h1>
+
+                </div>
+            );
+
+        }
+
+
+
+        function Tarjeta(props) {
+
+            const [contador, setContador] = React.useState(0);
+
+
+            function disminuir() {
+
+                setContador(contador - 1);
+
+            }
+
+
+            function aumentar() {
+
+                setContador(contador + 1);
+
+            }
+
+
+            return (
+
+                <div className="tarjeta">
+
+                    <img
+                        src={props.imagen}
+                        alt="Consola de videojuegos"
+                    />
+
+
+                    <h3>
+                        Estreno!!
+                    </h3>
+
+
+                    <p>
+                        Entra y diviertete con los mejores estrenos de este año, disfruta de los mejores juegos.
+                    </p>
+
+
+                    <div className="contador">
+
+                        <button
+                            className="menos"
+                            onClick={disminuir}
+                        >
+                            -
+                        </button>
+
+
+                        <span>
+                            {contador}
+                        </span>
+
+
+                        <button
+                            className="mas"
+                            onClick={aumentar}
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            );
+
+        }
+
+
+
+        function Img() {
+
+            const imagen =
+                "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/4a35c9a8490c69fe89af0f52d4ac0249b230b4fdb12e8469.jpg";
+
+
+            const imagen2 =
+                "https://image.api.playstation.com/vulcan/ap/rnd/202605/1419/63142285b9e04bc0ef3f6af46b665ecea4e47bfa311eb217.jpg";
+
+
+            const imagen3 =
+                "https://cms-assets.xboxservices.com/assets/fa/07/fa078cc2-adae-4e33-808b-54a9696489c6.png?n=XboxGamesShowcase2026_GearsOfWar-EDAY_Thumbnail.png";
+
+
+            return (
+
+                <div className="tarjetas">
+
+                    <Tarjeta imagen={imagen} />
+
+                    <Tarjeta imagen={imagen2} />
+
+                    <Tarjeta imagen={imagen3} />
+
+                </div>
+
+            );
+
+        }
+
+
+
+        function App() {
+
+            return (
+
+                <div>
+
+                    <Titulo />
+
+                    <Img />
+
+                </div>
+
+            );
+
+        }
+
+
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+
+    </script>
+
+    <footer>
+        <p>Derechos reservados &copy; 2026</p>
+    </footer>
+</body>
+
+</html>
